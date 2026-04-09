@@ -13,7 +13,7 @@ LATEST_RELEASE_ZIP=$(curl -s https://api.github.com/repos/dunglas/mercure/releas
 echo "Downloading and decompressing archive"
 
 curl -sSL -o "$OUTPUT_FILE" "$LATEST_RELEASE_ZIP"
-tar -xzf $OUTPUT_FILE mercure Caddyfile
+tar -xzf $OUTPUT_FILE mercure
 
 echo "Cleaning temporary directories and files"
 
