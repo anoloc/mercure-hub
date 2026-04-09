@@ -1,22 +1,20 @@
 # Mercure Hub
 
-The [Mercure](https://mercure.rocks) hub that is powering real-time features on our apps through
+The [Mercure](https://mercure.rocks) hub that is powering real-time features on our apps using
 [Server-Sent Events](https://en.wikipedia.org/wiki/Server-sent_events).
 
 > [!NOTE]
-> This repository is used by the production environment only. In local environment, there's no need to clone it unless
-> you have to update the Mercure executable.
+> This repository is used by the production environment only. In the local environment, there's no need to clone it
+> unless you have to update what's running in production.
 
-## Prerequisites
+## The Scalingo buildpack
 
-  - Docker
-    - This container is part of a [larger Docker Composer project](https://github.com/anoloc/docker)
+This repo implements a custom Scalingo [buildpack](https://doc.scalingo.com/platform/deployment/buildpacks/custom)
+tailored to run a Mercure hub using the standalone `mercure` executable.
 
-## Installation
+Since this repo is [private](https://doc.scalingo.com/platform/deployment/buildpacks/custom#private-buildpack), the
+buildpack is provided as a `tar.gz` archive.
 
-In our aforementioned Docker project, run `docker compose up -d anoloc-mercure-hub` (use `--build` to force rebuild).
+## The `mercure` executable
 
-## Production environment
-
-The `mercure` executable is used, which is versioned in this repository. To update this executable, run
-`./scripts/download.sh` and commit the resulting changes.
+This executable is versioned. To update it, run `./scripts/update.sh` and commit the resulting changes.
