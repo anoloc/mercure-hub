@@ -34,7 +34,6 @@
 	log_skip /favicon.ico
 
 	header / Content-Type "text/html; charset=utf-8"
-	respond / 404
 	respond /robots.txt `User-agent: *
 	Disallow: /`
 	respond /healthz 200
