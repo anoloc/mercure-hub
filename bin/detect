@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+BUILD_DIR=${1:-}
+
+echo "binary-app"
+
+exit 0
