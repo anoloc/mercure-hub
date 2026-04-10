@@ -3,5 +3,5 @@
 cat << EOF
 ---
 default_process_types:
-  web: SERVER_NAME=:$PORT ./mercure run
+  web: SERVER_NAME=:\$PORT ./mercure run
 EOF
