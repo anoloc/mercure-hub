@@ -6,4 +6,4 @@ OUTPUT_FILE="mercure-hub-buildpack.tar.gz"
 
 echo "Creating archive"
 
-tar -czf $OUTPUT_FILE bin Caddyfile mercure
+tar -czf $OUTPUT_FILE bin

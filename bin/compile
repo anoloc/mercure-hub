@@ -22,3 +22,7 @@ tar -xzf "$OUTPUT_FILE" mercure -C "$BUILD_DIR"
 echo "Making binary executable"
 
 chmod +x "$BUILD_DIR/mercure"
+
+echo "Copying configuration file"
+
+cp "Caddyfile" "$BUILD_DIR"
