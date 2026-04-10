@@ -1,9 +1,24 @@
 #!/usr/bin/env bash
 
-set -e
+set -e # Exit immediately if a command exits with a non-zero status.
 
 BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
-chmod +x "$1/mercure"
+OUTPUT_FILE="$CACHE_DIR/mercure-latest.tar.gz"
+
+echo "Pulling latest release"
+
+LATEST_RELEASE_ARCHIVE=$(curl -s https://api.github.com/repos/dunglas/mercure/releases/latest \
+  | sed 's/[()",{}]/ /g; s/ /\n/g' \
+  | grep "https.*mercure_Linux_x86_64.tar.gz")
+
+echo "Downloading and decompressing archive"
+
+curl -sSL -o "$OUTPUT_FILE" "$LATEST_RELEASE_ARCHIVE"
+tar -xzf "$OUTPUT_FILE" mercure -C "$BUILD_DIR"
+
+echo "Making binary executable"
+
+chmod +x "$BUILD_DIR/mercure"
